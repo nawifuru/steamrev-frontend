@@ -4,6 +4,7 @@ $bg-col-3: black;
 $bg-col-4: #171a21;
 $bg-col-5: #162838;
 $bg-col-6: white;
+$bg-col-7: #a5a5a5;
 $text-col-1: #dddddd;
 $text-col-2: #66dee4;
 $text-col-3: black;
@@ -28,13 +29,68 @@ $data-col-4: #065ba4;
     color: $text-col-1;
     font-weight: 300;
     font-family: "Barlow", sans-serif;
+
+    .game-price-details {
+        background-color: rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        .game-price-discount {
+            background-color: #b7ff2f;
+            color: $text-col-3;
+        }
+        .game-price-initial {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .game-price-final {
+        }
+    }
+    .navigation-links {
+        text-decoration: none;
+        color: $text-col-1;
+        &:hover {
+            color: $text-col-6;
+        }
+    }
+    .custom-tooltip {
+        background-color: $bg-col-6;
+        color: $text-col-3;
+        padding: 0.5rem;
+    }
+    .data {
+        color: $data-col-2;
+    }
+    .secondary-data {
+        color: $data-col-1;
+    }
+    .clickable-data {
+        color: $data-col-4;
+    }
+    .text-big {
+        font-size: 2rem;
+    }
+    .text-med {
+        font-size: 1.2rem;
+    }
+    .text-small {
+        font-size: 0.5rem;
+    }
+    .font-weight-bold {
+        font-weight: bold;
+    }
+    .secondary-text {
+        color: $text-col-4;
+    }
+    .images-mini {
+        height: 24px;
+    }
 }
 #NavigationBar {
     background-color: $bg-col-2;
-    .navigation-links {
-        margin-left: 20px;
+    #brand-logo {
+        height: 32px;
     }
     #search-form {
+        min-width: 600px;
         position: relative;
         #search-bar {
             width: 100%;
@@ -65,14 +121,22 @@ $data-col-4: #065ba4;
             top: 40px;
             z-index: 10;
             .search-results-item {
-                background-color: $bg-col-1;
+                background-color: $bg-col-2;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
                 cursor: pointer;
                 .search-item-image {
                     height: 32px;
                 }
             }
             .search-results-item:hover {
-                background-color: $bg-col-2;
+                background-color: $bg-col-4;
+            }
+            .search-results-loading {
+                padding: 5px;
+                color: $text-col-3;
+                background-color: $bg-col-7;
             }
         }
     }
@@ -215,59 +279,6 @@ $data-col-4: #065ba4;
     }
 }
 
-.game-price-details {
-    background-color: rgba(0, 0, 0, 0.5);
-    display: inline-block;
-    .game-price-discount {
-        background-color: #b7ff2f;
-        color: $text-col-3;
-    }
-    .game-price-initial {
-        text-decoration: line-through;
-        color: rgba(255, 255, 255, 0.5);
-    }
-    .game-price-final {
-    }
-}
-.navigation-links {
-    text-decoration: none;
-    color: $text-col-1;
-    &:hover {
-        color: $text-col-6;
-    }
-}
-.custom-tooltip {
-    background-color: $bg-col-6;
-    color: $text-col-3;
-    padding: 0.5rem;
-}
-.data {
-    color: $data-col-2;
-}
-.secondary-data {
-    color: $data-col-1;
-}
-.clickable-data {
-    color: $data-col-4;
-}
-.text-big {
-    font-size: 2rem;
-}
-.text-med {
-    font-size: 1.2rem;
-}
-.text-small {
-    font-size: 0.5rem;
-}
-.font-weight-bold {
-    font-weight: bold;
-}
-.secondary-text {
-    color: $text-col-4;
-}
-.images-mini {
-    height: 24px;
-}
 @keyframes fadeIn {
     from {
         opacity: 0;
