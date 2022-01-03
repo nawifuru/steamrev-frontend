@@ -6,16 +6,18 @@ function Footer() {
         <Container id="Footer">
             <Row>
                 <Col sm={6}>
-                    <span>
+                    <a className="navigation-links" href="/about">About</a>
+                    <p>
                         SteamRev is a hobby project and is not affiliated with Steam or Valve. The website is built with the React framework and powered by the Steam API.
-                    </span>
+                    </p>
+                    <p>Copyright 2022 SteamRev. All rights reserved.</p>
                 </Col>
                 <Col sm={6}>
                     <div id="footer-logos">
-                        <a href="https://github.com/">
+                        <a href="https://github.com/nawifuru/">
                             <img className="external-logos" src={githubLogo} alt="" />
                         </a>
-                        <a href="https://www.linkedin.com/">
+                        <a href="https://www.linkedin.com/in/nawi-furu-31975b229/">
                             <img className="external-logos" src={linkedinLogo} alt="" />
                         </a>
                     </div>

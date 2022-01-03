@@ -2,18 +2,31 @@ import { Container, Form, Row } from "react-bootstrap";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { currencyFormat, ipAddress, med_player_multiplier } from "../AppSettings";
+import { motion, useAnimation } from "framer-motion";
 
 function QualityView() {
     const [percentile, setPercentile] = useState(0.5);
     const [percentileLabel, setPercentileLabel] = useState('0.5');
     const [gameList, setGameList] = useState(null);
+    const controls = useAnimation();
+
     useEffect(() => {
         async function fetchData() {
+            await controls.start({
+                opacity: 0
+            })
             const results = await axios.get(`http://${ipAddress}/games/quality?percentile=${percentile}`);
             setGameList(results.data);
+            await controls.start({
+                opacity: 1
+            })
         }
         fetchData();
-    }, [percentile])
+    }, [percentile, controls]);
+
+    const handleChangePercentile = (e) => {
+        setPercentile(e.target.value);
+    }
     return (
         <Container id="QualityView">
             <Row>
@@ -29,12 +42,15 @@ function QualityView() {
                         step={0.01}
                         defaultValue={0.5}
                         onChange={(e) => setPercentileLabel(e.target.value)}
-                        onMouseUp={(e) => setPercentile(e.target.value)}
+                        onMouseUp={(e) => handleChangePercentile(e)}
                     />
                 </div>
                 {
                     gameList &&
-                    <div id="similar-games">
+                    <motion.div
+                        id="similar-games"
+                        animate={controls}
+                    >
                         <ul id="similar-games-results">
                             {gameList.map((game) => (
                                 <li className="similar-games-item" key={game.appid}>
@@ -52,7 +68,7 @@ function QualityView() {
                                 </li>
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
                 }
             </Row>
         </Container>

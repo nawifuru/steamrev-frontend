@@ -13,6 +13,7 @@ import ChartView from './components/ChartView';
 import GameView from './components/GameView';
 import QualityView from './components/QualityView';
 import AboutView from './components/AboutView';
+import Page404 from './components/Page404';
 function App() {
   const store = createStore(allReducers, {});
   return (
@@ -23,6 +24,7 @@ function App() {
         </Row>
         <Row id="Content">
           <Routes>
+            <Route path='*' element={<Page404 />}></Route>
             <Route path="/" element={<HomeView />}></Route>
             <Route path="/charts" element={<ChartView />}></Route>
             <Route path="/games/:appid" element={<GameView />}></Route>

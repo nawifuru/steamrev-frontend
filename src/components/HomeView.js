@@ -16,10 +16,10 @@ function HomeView() {
         <Container id="HomeView">
             <Row>
                 <Col>
-                    <Table size="sm" className="popular-game-table" variant="dark">
+                    <Table size="sm" className="popular-game-table" >
                         <tbody>
                             <tr>
-                                <td colSpan={2} className="text-med">Best Selling Games of All-Time</td>
+                                <td colSpan={2} className="text-med font-weight-bold">Best Selling Games of All-Time</td>
                                 <td className="text-center">Estimated Revenue</td>
                                 <td className="text-center">Estimated Owners</td>
                             </tr>
@@ -48,10 +48,10 @@ function HomeView() {
                     </Table>
                 </Col>
                 <Col>
-                    <Table size="sm" className="popular-game-table" variant="dark">
+                    <Table size="sm" className="popular-game-table">
                         <tbody>
                             <tr>
-                                <td colSpan={2} className="text-med">Recent Best Selling Games</td>
+                                <td colSpan={2} className="text-med font-weight-bold">Recent Best Selling Games</td>
                                 <td className="text-center">Estimated Revenue</td>
                                 <td className="text-center">Estimated Owners</td>
                             </tr>

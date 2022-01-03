@@ -3,11 +3,13 @@ $bg-col-2: #1e232e;
 $bg-col-3: black;
 $bg-col-4: #171a21;
 $bg-col-5: #162838;
+$bg-col-6: white;
 $text-col-1: #dddddd;
 $text-col-2: #66dee4;
 $text-col-3: black;
 $text-col-4: rgba(255, 255, 255, 0.445);
 $text-col-5: #065ba4;
+$text-col-6: #a5a5a5;
 $data-col-1: #b7ff2f;
 $data-col-2: #3cb2fc;
 $data-col-3: #51691b;
@@ -19,13 +21,19 @@ $data-col-4: #065ba4;
     dataCol1: $data-col-1;
     dataCol2: $data-col-2;
 }
+
 #App {
     min-height: 100vh;
     background-color: $bg-col-1;
     color: $text-col-1;
     font-weight: 300;
+    font-family: "Barlow", sans-serif;
 }
 #NavigationBar {
+    background-color: $bg-col-2;
+    .navigation-links {
+        margin-left: 20px;
+    }
     #search-form {
         position: relative;
         #search-bar {
@@ -72,7 +80,13 @@ $data-col-4: #065ba4;
 #Content {
     margin-top: 100px;
     #HomeView {
+        animation: fadeIn 0.5s ease-in-out;
         .popular-game-table {
+            color: $text-col-1;
+            background-color: $bg-col-2;
+            * {
+                border: none;
+            }
             .game-details {
                 a {
                     text-decoration: none;
@@ -95,6 +109,7 @@ $data-col-4: #065ba4;
         }
     }
     #GameView {
+        animation: fadeIn 0.5s ease-in-out;
         max-width: 1200px;
         #game-details {
             #game-details-primary {
@@ -125,6 +140,7 @@ $data-col-4: #065ba4;
         }
     }
     #ChartView {
+        animation: fadeIn 0.5s ease-in-out;
         max-width: 1200px;
         #chart-select-year {
             margin-left: auto;
@@ -136,10 +152,11 @@ $data-col-4: #065ba4;
         }
     }
     #QualityView {
+        animation: fadeIn 0.5s ease-in-out;
         #quality-viewer-control-container {
             text-align: center;
             margin: auto;
-            padding: 2rem;
+            padding: 2rem 1rem 2rem 1rem;
             font-size: 40px;
             background-color: transparent;
             color: $text-col-1;
@@ -149,11 +166,13 @@ $data-col-4: #065ba4;
         }
     }
     #AboutView {
+        animation: fadeIn 0.5s ease-in-out;
         .about-column {
             padding: 0 4rem;
         }
     }
 }
+
 #Footer {
     border-top: 1px solid $bg-col-5;
     margin-top: 100px;
@@ -169,7 +188,6 @@ $data-col-4: #065ba4;
 }
 
 #similar-games {
-    margin-top: 5rem;
     #similar-games-results {
         display: flex;
         flex-direction: row;
@@ -211,6 +229,18 @@ $data-col-4: #065ba4;
     .game-price-final {
     }
 }
+.navigation-links {
+    text-decoration: none;
+    color: $text-col-1;
+    &:hover {
+        color: $text-col-6;
+    }
+}
+.custom-tooltip {
+    background-color: $bg-col-6;
+    color: $text-col-3;
+    padding: 0.5rem;
+}
 .data {
     color: $data-col-2;
 }
@@ -229,9 +259,20 @@ $data-col-4: #065ba4;
 .text-small {
     font-size: 0.5rem;
 }
+.font-weight-bold {
+    font-weight: bold;
+}
 .secondary-text {
     color: $text-col-4;
 }
 .images-mini {
     height: 24px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

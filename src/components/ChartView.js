@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Table } from "react-bootstrap";
 import Select from "react-select";
 import { currencyFormat, ipAddress, med_player_multiplier } from "../AppSettings";
 import MetricHorizontalBarChart from "./sub/MetricHorizontalBarChart";
@@ -29,9 +29,36 @@ function ChartView() {
                 onChange={(value) => setFilterYear(value)}
             />
             <Row>
+                <Col>
+                    <div className="text-center">
+                        <h2>
+                            {currencyFormat(metrics.medianRevenue.filter(item => item.year === filterYear.value)[0].data.percentile_cont * med_player_multiplier)}
+                        </h2>
+                        <h4 className="secondary-text">Median revenue <span className="data">({filterYear.label})</span></h4>
+                    </div>
+                </Col>
+                <Col>
+                    <div className="text-center">
+                        <h2>
+                            {metrics.medianReview.filter(item => item.year === filterYear.value)[0].data.percentile_cont * med_player_multiplier}
+                        </h2>
+                        <h4 className="secondary-text">Median owners <span className="data">({filterYear.label})</span></h4>
+                    </div>
+                </Col>
+                <Col>
+                    <div className="text-center">
+                        <h2>
+                            {metrics.gameCount.filter(item => item.year === filterYear.value)[0].data.count}
+                        </h2>
+                        <h4 className="secondary-text">Apps in database <span className="data">({filterYear.label})</span></h4>
+                    </div>
+                </Col>
+            </Row>
+            <Row>
                 <Col sm={8}>
-                    <h3 className="chart-title">Median Review Count for Different Pricepoints</h3>
-                    <h2 className="chart-title data">({filterYear.label})</h2>
+                    <h4 className="chart-title">
+                        Median Review Count for Different Pricepoints <span className="data">({filterYear.label})</span>
+                    </h4>
                     <MetricLineChart
                         data={metrics.pricepoints.filter(item => item.year === filterYear.value)[0].data}
                         x="initial_price"
@@ -41,35 +68,35 @@ function ChartView() {
                     />
                 </Col>
                 <Col sm={4}>
-                    <Row>
-                        <div className="text-center">
-                            <h2>
-                                {currencyFormat(metrics.medianRevenue.filter(item => item.year === filterYear.value)[0].data.percentile_cont * med_player_multiplier)}
-                            </h2>
-                            <h4 className="secondary-text">Median revenue <span className="data">({filterYear.label})</span></h4>
-                        </div>
-                    </Row>
-                    <Row>
-                        <div className="text-center">
-                            <h2>
-                                {metrics.medianReview.filter(item => item.year === filterYear.value)[0].data.percentile_cont * med_player_multiplier}
-                            </h2>
-                            <h4 className="secondary-text">Median owners <span className="data">({filterYear.label})</span></h4>
-                        </div>
-                    </Row>
-                    <Row>
-                        <div className="text-center">
-                            <h2>
-                                {metrics.gameCount.filter(item => item.year === filterYear.value)[0].data.count}
-                            </h2>
-                            <h4 className="secondary-text">Apps in database <span className="data">({filterYear.label})</span></h4>
-                        </div>
-                    </Row>
+                    <Table variant="dark">
+                        <tbody>
+                            <tr>
+                                <td colSpan={2}>Games above $x revenue</td>
+                            </tr>
+                            <tr>
+                                <td>Above $10k</td>
+                                <td>{metrics.above10k.filter(item => item.year === filterYear.value)[0].data.count}</td>
+                            </tr>
+                            <tr>
+                                <td>Above $50k</td>
+                                <td>{metrics.above50k.filter(item => item.year === filterYear.value)[0].data.count}</td>
+                            </tr>
+                            <tr>
+                                <td>Above $200k</td>
+                                <td>{metrics.above200k.filter(item => item.year === filterYear.value)[0].data.count}</td>
+                            </tr>
+                            <tr>
+                                <td>Above $500k</td>
+                                <td>{metrics.above500k.filter(item => item.year === filterYear.value)[0].data.count}</td>
+                            </tr>
+                        </tbody>
+                    </Table>
                 </Col>
             </Row>
             <Row>
-                <h3 className="chart-title">Median Review Count for every Genre</h3>
-                <h2 className="chart-title data">({filterYear.label})</h2>
+                <h4 className="chart-title">
+                    Median Review Count for every Genre <span className="data">({filterYear.label})</span>
+                </h4>
                 <MetricHorizontalBarChart
                     data={metrics.genres.filter(item => item.year === filterYear.value)[0].data}
                     x="description"
@@ -79,14 +106,15 @@ function ChartView() {
                 />
             </Row>
             <Row>
-                <h3 className="chart-title">Median Review Count for every Category</h3>
-                <h2 className="chart-title data">({filterYear.label})</h2>
+                <h4 className="chart-title">
+                    Median Review Count for every Category <span className="data">({filterYear.label})</span>
+                </h4>
                 <MetricVerticalBarChart
                     data={metrics.categories.filter(item => item.year === filterYear.value)[0].data}
                     x="percentile_cont"
                     y="description"
                     toolTipLabel="Category"
-                    calculatedHeight={metrics.categories.filter(item => item.year === filterYear.value)[0].data.length * 50}
+                    calculatedHeight={metrics.categories.filter(item => item.year === filterYear.value)[0].data.length * 40}
                 />
             </Row>
         </Container >

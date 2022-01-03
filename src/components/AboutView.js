@@ -5,7 +5,8 @@ function AboutView() {
             <Row>
                 <Col className="about-column">
                     <h2>SteamRev</h2>
-                    <p>SteamRev is a hobby project and is not affiliated with Steam or Valve. The website is built with the React framework and powered by the Steam API.</p>
+                    <p>SteamRev is a hobby project and is not affiliated with Steam or Valve. All daa is powered by the Steam API.</p>
+                    <p>The website is built with the React, Node, Express framework and the data is stored and managed with PostgreSQL.</p>
                     <h2>Technology</h2>
                     <p>
                         The estimated revenue is calculated using the Boxleiter or (NB) method, which uses the reviews of games to approximate the number of owners, and thus the revenue.

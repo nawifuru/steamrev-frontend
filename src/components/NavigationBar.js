@@ -1,10 +1,13 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import SearchForm from './sub/SearchForm';
 function NavigationBar() {
     return (
-        <Navbar fixed="top" id="NavigationBar" bg="dark" variant="dark" expand="lg">
+        <Navbar fixed="top" id="NavigationBar" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="/">SteamRev</Navbar.Brand>
+                <Navbar.Brand>
+                    <Link className="navigation-links" to="/">STEAM REV</Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <SearchForm></SearchForm>
@@ -13,9 +16,8 @@ function NavigationBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/charts">Charts</Nav.Link>
-                        <Nav.Link href="/quality">Quality Viewer</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
+                        <Link className="navigation-links" to="/charts">CHARTS</Link>
+                        <Link className="navigation-links" to="/quality">PERCENTILEVIEWER</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
