@@ -9,5 +9,6 @@ module.exports = {
         });
         value = formatter.format(value / 100)
         return value;
-    }
+    },
+    ipAddress: '192.168.50.87:5000'
 }

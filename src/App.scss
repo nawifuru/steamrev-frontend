@@ -7,7 +7,7 @@ $text-col-1: #dddddd;
 $text-col-2: #66dee4;
 $text-col-3: black;
 $text-col-4: rgba(255, 255, 255, 0.445);
-$text-col-5: #3cb2fc;
+$text-col-5: #065ba4;
 $data-col-1: #b7ff2f;
 $data-col-2: #3cb2fc;
 $data-col-3: #51691b;
@@ -25,62 +25,36 @@ $data-col-4: #065ba4;
     color: $text-col-1;
     font-weight: 300;
 }
-#HeaderRow {
-    padding-top: 5rem;
-    padding-bottom: 4rem;
-}
-#NavigationSide {
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 70px;
-    margin-bottom: 70px;
-    a {
-        text-decoration: none;
-        color: $text-col-1;
-        border: 1px solid transparent;
-        padding: 5px;
-        font-weight: 400;
-    }
-    a:hover {
-        color: $text-col-5;
-        border: 1px solid $text-col-5;
-        border-radius: 5px;
-    }
-}
-#SearchRow {
-    min-height: 500px;
+#NavigationBar {
     #search-form {
         position: relative;
-        width: 100%;
-        margin: auto;
-        margin-bottom: 2rem;
         #search-bar {
+            width: 100%;
             display: flex;
             flex-direction: row;
-            flex-grow: 1;
             border: 1px solid white;
-            border-radius: 1rem;
+            border-radius: 10px;
             img {
                 align-self: center;
-                height: 50px;
-                width: 50px;
+                height: 16px;
+                width: 16px;
+                margin-left: 10px;
             }
             #search-control {
                 background-color: transparent;
                 color: $text-col-1;
                 border: none;
-                height: 60px;
-                font-size: 40px;
             }
             #search-control:focus {
                 box-shadow: none;
             }
         }
         #search-results {
+            display: flex;
+            flex-direction: column;
             position: absolute;
             width: 100%;
-            top: 70px;
+            top: 40px;
             z-index: 10;
             .search-results-item {
                 background-color: $bg-col-1;
@@ -94,7 +68,34 @@ $data-col-4: #065ba4;
             }
         }
     }
-    #game-container {
+}
+#Content {
+    margin-top: 100px;
+    #HomeView {
+        .popular-game-table {
+            .game-details {
+                a {
+                    text-decoration: none;
+                    color: $text-col-2;
+                }
+                a:hover {
+                    color: $text-col-5;
+                }
+                td {
+                    vertical-align: middle;
+                }
+                .game-image {
+                    height: 48px;
+                    max-width: 140px;
+                }
+                .game-image:hover {
+                    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                }
+            }
+        }
+    }
+    #GameView {
+        max-width: 1200px;
         #game-details {
             #game-details-primary {
                 #game-details-header-image {
@@ -107,74 +108,95 @@ $data-col-4: #065ba4;
                         height: 16px;
                     }
                 }
-            }
-            #game-details-secondary {
-                #game-details-secondary-table {
+                #game-details-table {
                     color: $text-col-1;
                 }
             }
-        }
-        #game-metrics {
-            text-align: center;
-            align-items: center;
-            #game-metrics-percentile {
-                display: flex;
-                justify-content: center;
+            #game-details-secondary {
+                #game-metrics {
+                    text-align: center;
+                    align-items: center;
+                    #game-metrics-percentile {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
             }
         }
     }
-}
-#PopularGameRow {
-    margin-bottom: 5rem;
-    .game-details {
-        td {
-            vertical-align: middle;
+    #ChartView {
+        max-width: 1200px;
+        #chart-select-year {
+            margin-left: auto;
+            color: $text-col-3;
+            width: 100px;
         }
-        .game-image {
-            height: 48px;
-            max-width: 140px;
+        .chart-title {
+            text-align: center;
         }
     }
-}
-#ChartRow {
-    margin-bottom: 5rem;
-    #chart-select-year {
-        margin-left: auto;
-        color: $text-col-3;
-        width: 100px;
-    }
-    .chart-title {
-        text-align: center;
-    }
-}
-#QualityViewerRow {
-    justify-content: center;
-    margin-bottom: 5rem;
-    #quality-viewer {
-        max-width: 600px;
-        #quality-viewer-control {
-            height: 60px;
+    #QualityView {
+        #quality-viewer-control-container {
+            text-align: center;
+            margin: auto;
+            padding: 2rem;
             font-size: 40px;
-            width: 130px;
+            background-color: transparent;
+            color: $text-col-1;
+            #quality-viewer-control {
+                max-width: 500px;
+            }
         }
-        #quality-viewer-results {
-            display: flex;
-            flex-direction: row;
-            overflow-x: auto;
-            white-space: nowrap;
+    }
+    #AboutView {
+        .about-column {
+            padding: 0 4rem;
         }
     }
 }
-#FooterRow {
+#Footer {
+    border-top: 1px solid $bg-col-5;
+    margin-top: 100px;
     padding: 2rem;
-    border-top: 2px solid $bg-col-2;
+    color: $text-col-4;
     #footer-logos {
+        text-align: right;
         .external-logos {
             margin-right: 8px;
             height: 32px;
         }
     }
 }
+
+#similar-games {
+    margin-top: 5rem;
+    #similar-games-results {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .similar-games-item {
+            list-style: none;
+            max-width: 210px;
+            a {
+                text-decoration: none;
+                font-weight: 400;
+                color: $text-col-2;
+            }
+            a:hover {
+                color: $text-col-5;
+            }
+            img {
+                height: 96px;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+            img:hover {
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            }
+        }
+    }
+}
+
 .game-price-details {
     background-color: rgba(0, 0, 0, 0.5);
     display: inline-block;

@@ -1,18 +1,30 @@
 import moment from "moment";
-import websiteIcon from "../../images/websiteIcon.png";
-import steamIcon from "../../images/steamIcon.png";
+import websiteIcon from "../images/websiteIcon.png";
+import steamIcon from "../images/steamIcon.png";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
-import { currencyFormat, high_player_multiplier, low_player_multiplier } from "../../AppSettings";
-function GameDetails(props) {
-    const game = props.selectedGame;
+import { currencyFormat, high_player_multiplier, ipAddress, low_player_multiplier } from "../AppSettings";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import GamesLikeThis from "./sub/GamesLikeThis";
+function GameView() {
+    const { appid } = useParams();
+    const [game, setGame] = useState(null);
+    useEffect(() => {
+        async function fetchData() {
+            const results = await axios.get(`http://${ipAddress}/games/${appid}`);
+            setGame(results.data);
+        }
+        fetchData();
+    }, [appid])
     return (
         game &&
-        <Container id="game-container">
+        <Container id="GameView">
             <Row>
                 <h2>{game.name}</h2>
             </Row>
             <Row id="game-details">
-                <Col id="game-details-primary">
+                <Col sm={6} id="game-details-primary">
                     <img id="game-details-header-image" src={game.header_image} alt=""></img>
                     <p>{game.short_description}</p>
                     <div>
@@ -23,10 +35,7 @@ function GameDetails(props) {
                             <img className="game-redirect-icons" src={websiteIcon} alt="" />
                         </Button>
                     </div>
-                </Col>
-                <Col id="game-details-secondary">
-
-                    <Table bordered id="game-details-secondary-table">
+                    <Table bordered id="game-details-table">
                         <tbody>
                             <tr>
                                 <td>Developers</td>
@@ -40,7 +49,7 @@ function GameDetails(props) {
                                 <td>Genres</td>
                                 <td>
                                     {game.genres.map(function (item, index) {
-                                        return <span>{(index ? ', ' : '') + item}</span>
+                                        return <span key={item}>{(index ? ', ' : '') + item}</span>
                                     })}
                                 </td>
                             </tr>
@@ -48,7 +57,7 @@ function GameDetails(props) {
                                 <td>Categories</td>
                                 <td>
                                     {game.categories.map(function (item, index) {
-                                        return <span>{(index ? ', ' : '') + item}</span>
+                                        return <span key={item}>{(index ? ', ' : '') + item}</span>
                                     })}
                                 </td>
                             </tr>
@@ -76,41 +85,45 @@ function GameDetails(props) {
                             </tr>
                         </tbody>
                     </Table>
-
+                </Col>
+                <Col sm={6} id="game-details-secondary">
+                    <Row id="game-metrics">
+                        <Col>
+                            <h2 className="data">
+                                {game.total_reviews * low_player_multiplier}
+                                ..
+                                {game.total_reviews * high_player_multiplier}
+                            </h2>
+                            <p><small>Estimated Owners</small></p>
+                        </Col>
+                        <Col>
+                            <h2 className="data">
+                                {currencyFormat(game.total_reviews * game.initial_price * low_player_multiplier)}
+                                ..
+                                {currencyFormat(game.total_reviews * game.initial_price * high_player_multiplier)}
+                            </h2>
+                            <p><small>Estimated Revenue</small></p>
+                        </Col>
+                        <Col>
+                            <div id="game-metrics-percentile">
+                                <div className="px-2">
+                                    <h2 className="data">{game.tier_percentile?.toFixed(2)}</h2>
+                                    <p><small><span className="text-uppercase secondary-data">{game.tier}</span> revenue percentile</small></p>
+                                </div>
+                                <div className="px-2">
+                                    <h2 className="data">{game.total_percentile?.toFixed(2)}</h2>
+                                    <p><small><span className="secondary-data">TOTAL</span> revenue percentile</small></p>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
-            <Row id="game-metrics">
-                <Col>
-                    <h2 className="data">
-                        {game.total_reviews * low_player_multiplier}
-                        ..
-                        {game.total_reviews * high_player_multiplier}
-                    </h2>
-                    <p><small>Estimated Owners</small></p>
-                </Col>
-                <Col>
-                    <h2 className="data">
-                        {currencyFormat(game.total_reviews * game.initial_price * low_player_multiplier)}
-                        ..
-                        {currencyFormat(game.total_reviews * game.initial_price * high_player_multiplier)}
-                    </h2>
-                    <p><small>Estimated Revenue</small></p>
-                </Col>
-                <Col>
-                    <div id="game-metrics-percentile">
-                        <div className="px-2">
-                            <h2 className="data">{game.tier_percentile?.toFixed(2)}</h2>
-                            <p><small><span className="text-uppercase secondary-data">{game.tier}</span> revenue percentile</small></p>
-                        </div>
-                        <div className="px-2">
-                            <h2 className="data">{game.total_percentile?.toFixed(2)}</h2>
-                            <p><small><span className="secondary-data">TOTAL</span> revenue percentile</small></p>
-                        </div>
-                    </div>
-                </Col>
+            <Row>
+                <GamesLikeThis percentile={game.total_percentile?.toFixed(2)} />
             </Row>
         </Container>
     );
 }
 
-export default GameDetails;
+export default GameView;

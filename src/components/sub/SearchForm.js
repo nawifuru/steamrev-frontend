@@ -1,36 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Form, FormControl } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import searchIcon from '../images/searchIcon.png';
-import GameDetails from "./sub/GameDetails";
+import { ipAddress } from "../../AppSettings";
+import searchIcon from '../../images/searchIcon.png';
 function SearchForm() {
     const [gameList, setGameList] = useState([]);
     const [searchFocused, setSearchFocused] = useState(false);
     const [filterText, setFilterText] = useState('');
-    const [selectedGame, setSelectedGame] = useState(null);
 
     useEffect(() => {
         document.addEventListener('click', () => {
             setSearchFocused(false);
         });
         async function fetchData() {
-            const results = await axios.get('http://192.168.50.87:5000/games');
+            const results = await axios.get(`http://${ipAddress}/games`);
             setGameList(results.data);
         }
         fetchData();
-
     }, []);
-
-    const dispatch = useDispatch();
-    const appid = useSelector((state) => state.search);
-    useEffect(() => {
-        async function fetchData() {
-            const results = await axios.get(`http://192.168.50.87:5000/games/${appid}`);
-            setSelectedGame(results.data);
-        }
-        fetchData();
-    }, [appid]);
 
     const handleSearchFocused = (e) => {
         e.stopPropagation();
@@ -60,18 +47,14 @@ function SearchForm() {
                     filterText.length >= 3 &&
                     <div id="search-results">
                         {filteredGameList.map((item) => (
-                            <div className="search-results-item" key={item.appid} onClick={() => dispatch({ type: 'search', payload: item.appid })}>
+                            <a className="search-results-item" key={item.appid} href={`/games/${item.appid}`}>
                                 <img className="search-item-image" src={item.header_image} alt="" />
                                 <span>{item.name}</span>
-                            </div>
+                            </a>
                         ))}
                     </div>
                 }
             </Form>
-            {
-                selectedGame &&
-                <GameDetails selectedGame={selectedGame} />
-            }
         </div>
     );
 }
