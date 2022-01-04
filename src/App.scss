@@ -134,6 +134,20 @@ $data-col-4: #065ba4;
     margin-top: 100px;
     #HomeView {
         animation: fadeIn 0.5s ease-in-out;
+        #home-banner {
+            #home-logo {
+                float: right;
+                height: 150px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            #home-banner {
+                text-align: center;
+                #home-logo {
+                    float: none;
+                }
+            }
+        }
         .popular-game-table {
             border-radius: 5px;
             color: $text-col-1;

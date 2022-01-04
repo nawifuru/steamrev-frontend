@@ -1,4 +1,5 @@
 import axios from "axios";
+import mainLogo from '../images/mainLogo.svg';
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier, numberFormat } from "../AppSettings";
@@ -14,6 +15,15 @@ function HomeView() {
     return (
         gameList &&
         <Container id="HomeView">
+            <Row id="home-banner" className="mb-4">
+                <Col sm={4}>
+                    <img id="home-logo" src={mainLogo} alt="" />
+                </Col>
+                <Col sm={8}>
+                    <h1>STEAM REV</h1>
+                    <h3>Explore the top market trends within the Steam market.</h3>
+                </Col>
+            </Row>
             <Row>
                 <Col>
                     <Table size="sm" className="popular-game-table" >
