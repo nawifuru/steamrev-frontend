@@ -14,7 +14,7 @@ function MetricLineChart(props) {
                         bottom: 5,
                     }}
                 >
-                    <XAxis stroke={variables.textCol1} dataKey={props.x} angle={30} />
+                    <XAxis stroke={variables.textCol1} tickFormatter={props.xTickFormatter} dataKey={props.x} angle={30} />
                     <YAxis stroke={variables.textCol1} />
                     <Tooltip content={<CustomToolTip toolTipLabel={props.toolTipLabel} toolTipType={props.toolTipType} />} />
                     <CartesianGrid vertical={false} />

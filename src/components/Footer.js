@@ -7,10 +7,14 @@ function Footer() {
             <Row>
                 <Col sm={6}>
                     <a className="navigation-links" href="/about">{'FAQ & Help'}</a>
-                    <p>
-                        SteamRev is a hobby project and is not affiliated with Steam or Valve. The website is built with the React framework and powered by the Steam API.
-                    </p>
-                    <p>Copyright 2022 SteamRev. All rights reserved.</p>
+                    <small>
+                        <p>
+                            SteamRev is a hobby project and is not affiliated with Steam or Valve.
+                            Steam and the Steam logo are trademarks of Valve Corporation. All other trademarks are property of their respective owners.
+                        </p>
+                        <p>The website is built with the React framework and powered by the Steam API.</p>
+                        <p>Copyright 2022 SteamRev. All rights reserved.</p>
+                    </small>
                 </Col>
                 <Col sm={6}>
                     <div className='text-end'>

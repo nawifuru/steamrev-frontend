@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import Select from "react-select";
-import { bigCurrencyFormat, ipAddress, med_player_multiplier } from "../AppSettings";
+import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier } from "../AppSettings";
 import MetricHorizontalBarChart from "./sub/MetricHorizontalBarChart";
 import MetricLineChart from "./sub/MetricLineChart";
 import MetricVerticalBarChart from "./sub/MetricVerticalBarChart";
@@ -65,6 +65,7 @@ function ChartView() {
                         y="percentile_cont"
                         toolTipLabel="Pricepoint"
                         toolTipType="currency"
+                        xTickFormatter={currencyFormat}
                     />
                 </Col>
                 <Col sm={4}>

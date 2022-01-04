@@ -77,7 +77,8 @@ $data-col-4: #065ba4;
 #NavigationBar {
     background-color: $bg-col-2;
     #brand-logo {
-        height: 32px;
+        height: 40px;
+        margin-left: 5px;
     }
     #search-form {
         min-width: 600px;
@@ -238,7 +239,7 @@ $data-col-4: #065ba4;
             justify-content: flex-start;
             margin-left: 0.8rem;
             list-style: none;
-            max-width: 210px;
+            width: 210px;
             display: flex;
             flex-direction: column;
             a {

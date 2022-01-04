@@ -4,7 +4,7 @@ import CustomToolTip from './CustomTooltip';
 function MetricHorizontalBarChart(props) {
     if (props.data.length > 0)
         return (
-            <ResponsiveContainer width="100%" height={250}>
+            <ResponsiveContainer width="100%" height={300}>
                 <BarChart
                     data={props.data}
                     margin={{
@@ -14,7 +14,16 @@ function MetricHorizontalBarChart(props) {
                         bottom: 5,
                     }}
                 >
-                    <XAxis stroke={variables.textCol1} dataKey={props.x} interval={0} angle={-30} />
+                    <XAxis
+                        fontSize={13}
+                        stroke={variables.textCol1}
+                        dataKey={props.x}
+                        height={100}
+                        interval={0}
+                        dy={20}
+                        dx={-20}
+                        angle={-40}
+                    />
                     <YAxis fontSize={15} interval={0} stroke={variables.textCol1} />
                     <CartesianGrid vertical={false} />
                     <Tooltip cursor={{ fill: "#ffffff20" }} content={<CustomToolTip toolTipLabel={props.toolTipLabel} toolTipType={props.toolTipType} />} />
