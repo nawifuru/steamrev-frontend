@@ -2,8 +2,8 @@ $bg-col-1: #151920;
 $bg-col-2: #1b1f29;
 $bg-col-3: white;
 $bg-col-4: #171a21;
-$bg-col-5: #272c3a;
-
+$bg-col-5: hsl(226, 19%, 14%);
+$bg-col-6: #202635;
 $text-col-1: #dddddd;
 $text-col-2: black;
 $text-col-3: rgba(255, 255, 255, 0.445);
@@ -13,6 +13,8 @@ $text-col-5: #a5a5a5;
 $data-col-1: #a3cf06;
 $data-col-2: #3cb2fc;
 $data-col-3: #065ba4;
+
+$button-col-1: #3cb2fc;
 
 $nav-col-1: #121314;
 :export {
@@ -219,12 +221,13 @@ $nav-col-1: #121314;
         #quality-viewer-control-container {
             text-align: center;
             margin: auto;
-            background-color: transparent;
+            max-width: 500px;
+            background-color: $bg-col-6;
+            border-radius: 10px;
             color: $text-col-1;
+            padding: 1rem;
             margin-bottom: 2rem;
-            #quality-viewer-control {
-                max-width: 500px;
-            }
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
     }
     #AboutView {
@@ -278,7 +281,37 @@ $nav-col-1: #121314;
         }
     }
 }
+.slider-container {
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 2px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.418);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+    }
 
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: $button-col-1;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: $button-col-1;
+        cursor: pointer;
+    }
+}
 @keyframes fadeIn {
     from {
         opacity: 0;

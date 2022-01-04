@@ -32,26 +32,27 @@ function QualityView() {
         <Container id="QualityView">
             <Row>
                 <div id="quality-viewer-control-container">
-                    <div className="data">
-                        <h1>
-                            Retrieve games that around the
-                        </h1>
+                    <div>
+                        <h1>Retrieve games from</h1>
                         <div className="secondary-data">
                             <PercentileChart percentile={percentileLabel} />
-                            <h1>{percentileLabel}</h1>
-                            <small>percentile</small>
+                            <h1>{percentileLabel}<small>th</small></h1>
+                            <span>percentile</span>
                         </div>
                     </div>
-                    <Form.Range
-                        id="quality-viewer-control"
-                        type="number"
-                        min={0}
-                        max={1}
-                        step={0.01}
-                        defaultValue={0.5}
-                        onChange={(e) => setPercentileLabel(e.target.value)}
-                        onMouseUp={(e) => handleChangePercentile(e)}
-                    />
+                    <div class="slider-container">
+                        <input
+                            type="range"
+                            min={0}
+                            max={1}
+                            step={0.01}
+                            defaultValue={0.5}
+                            class="slider"
+                            id="myRange"
+                            onChange={(e) => setPercentileLabel(e.target.value)}
+                            onMouseUp={(e) => handleChangePercentile(e)}
+                        />
+                    </div>
                 </div>
                 {
                     gameList &&
