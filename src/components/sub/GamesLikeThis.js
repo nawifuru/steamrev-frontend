@@ -15,7 +15,7 @@ function GamesLikeThis(props) {
     return (
         gameList &&
         <div id="similar-games">
-            <h1>Similar Games based on Revenue Percentile</h1>
+            <h2>Similar Games based on Revenue Percentile</h2>
             <ul id="similar-games-results">
                 {gameList.map((game) => (
                     <li className="similar-games-item" key={game.appid}>

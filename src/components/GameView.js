@@ -91,8 +91,8 @@ function GameView() {
                         </tbody>
                     </Table>
                 </Col>
-                <Col sm={6} className="text-center">
-                    <h2 className="mb-4">METRICS</h2>
+                <Col sm={6} id="game-metrics" className="text-center">
+                    <h3 className="mb-2"><u id="game-metrics-header">METRICS</u></h3>
                     <Row>
                         <h2 className="data">
                             {game.total_reviews * low_player_multiplier}

@@ -9,9 +9,9 @@ $text-col-1: #dddddd;
 $text-col-2: #66dee4;
 $text-col-3: black;
 $text-col-4: rgba(255, 255, 255, 0.445);
-$text-col-5: #065ba4;
+$text-col-5: #3cb2fc;
 $text-col-6: #a5a5a5;
-$data-col-1: #b7ff2f;
+$data-col-1: #a3cf06;
 $data-col-2: #3cb2fc;
 $data-col-3: #51691b;
 $data-col-4: #065ba4;
@@ -137,6 +137,7 @@ $data-col-4: #065ba4;
     #HomeView {
         animation: fadeIn 0.5s ease-in-out;
         .popular-game-table {
+            border-radius: 5px;
             color: $text-col-1;
             background-color: $bg-col-2;
             * {
@@ -145,7 +146,7 @@ $data-col-4: #065ba4;
             .game-details {
                 a {
                     text-decoration: none;
-                    color: $text-col-2;
+                    color: $text-col-1;
                 }
                 a:hover {
                     color: $text-col-5;
@@ -184,6 +185,11 @@ $data-col-4: #065ba4;
             }
             #game-details-table {
                 color: $text-col-1;
+            }
+        }
+        #game-metrics {
+            #game-metrics-header {
+                text-decoration-thickness: 1px;
             }
         }
     }
@@ -245,7 +251,7 @@ $data-col-4: #065ba4;
             a {
                 text-decoration: none;
                 font-weight: 400;
-                color: $text-col-2;
+                color: $text-col-1;
             }
             a:hover {
                 color: $text-col-5;
