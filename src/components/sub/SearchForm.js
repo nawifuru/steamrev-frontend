@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Form, FormControl, Spinner } from "react-bootstrap";
+import { Button, Form, FormControl, InputGroup, Spinner } from "react-bootstrap";
 import { ipAddress } from "../../AppSettings";
 import searchIcon from '../../images/searchIcon.png';
 function SearchForm() {
@@ -37,13 +37,16 @@ function SearchForm() {
         delay = setTimeout(function () {
             setFilterText(e.target.value);
             setLoading(false);
-        }, 1500)
+        }, 1250)
     }
     const filteredGameList = gameList.filter(item => item.name.substring(0, filterText.length).toUpperCase() === filterText.toUpperCase());
     return (
         <div>
             <Form id="search-form" className="d-flex">
-                <div id="search-bar">
+                <InputGroup
+                    id="search-bar"
+                    onClick={(e) => handleSearchFocused(e)}
+                >
                     <img src={searchIcon} alt="" />
                     <FormControl
                         id="search-control"
@@ -51,11 +54,10 @@ function SearchForm() {
                         placeholder="Search"
                         className="me-2"
                         aria-label="Search"
-                        onClick={(e) => handleSearchFocused(e)}
                         onChange={(e) => handleChangeFilterText(e)}
                         autoComplete="off"
                     />
-                </div>
+                </InputGroup>
                 {
                     searchFocused &&
                     gameList &&

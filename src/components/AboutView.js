@@ -4,12 +4,12 @@ function AboutView() {
         <Container id="AboutView">
             <Row id="about-container">
                 <div className="my-2">
-                    <h2>SteamRev</h2>
+                    <h2 className="about-header">SteamRev</h2>
                     <p>SteamRev is a hobby project and is not affiliated with Steam or Valve. All daa is powered by the Steam API.</p>
                     <p>The website is built with the React, Node, Express framework and the data is stored and managed with PostgreSQL.</p>
                 </div>
                 <div className="my-2">
-                    <h2>Technology</h2>
+                    <h2 className="about-header">Technology</h2>
                     <p>
                         The estimated revenue is calculated using the Boxleiter or (NB) method, which uses the reviews of games to approximate the number of owners, and thus the revenue.
                     </p>
@@ -20,7 +20,7 @@ function AboutView() {
                     </p>
                 </div>
                 <div className="my-2">
-                    <h2>References</h2>
+                    <h2 className="about-header">References</h2>
                     <a href="https://newsletter.gamediscover.co/p/how-that-game-sold-on-steam-using">
                         https://newsletter.gamediscover.co/p/how-that-game-sold-on-steam-using
                     </a>
@@ -29,7 +29,7 @@ function AboutView() {
                     </a>
                 </div>
                 <div className="my-2">
-                    <h2>About Me</h2>
+                    <h2 className="about-header">About Me</h2>
                     <p>I am a generalist programmer. This is a little side project of mine to learn more about web development.</p>
                     <p>You can contact me at <a href="mailto:nawifuru1@gmail.com">nawifuru1@gmail.com</a></p>
                 </div>

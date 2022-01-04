@@ -21,7 +21,7 @@ function HomeView() {
                 </Col>
                 <Col sm={8}>
                     <h1>STEAM REV</h1>
-                    <h3>Explore the top market trends within the Steam market.</h3>
+                    <h3 className="data">Explore the top market trends within the Steam market.</h3>
                 </Col>
             </Row>
             <Row>

@@ -1,6 +1,7 @@
 import axios from "axios";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier } from "../../AppSettings";
+import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier, numberFormat } from "../../AppSettings";
 
 function GamesLikeThis(props) {
     const [gameList, setGameList] = useState(null);
@@ -20,7 +21,7 @@ function GamesLikeThis(props) {
                 {gameList.map((game) => (
                     <li className="similar-games-item" key={game.appid}>
                         <a href={`/games/${game.appid}`}>
-                            <img src={game.header_image} alt="" />
+                            <motion.img whileHover={{ scale: 1.05 }} src={game.header_image} alt="" />
                             <div>{game.name}</div>
                         </a>
                         <div className="game-price-details">
@@ -28,7 +29,7 @@ function GamesLikeThis(props) {
                             <span className="game-price-initial">{game.discount_percent !== 0 ? currencyFormat(game.initial_price) : ''}</span>
                             <span className="game-price-final">{currencyFormat(game.final_price)}</span>
                         </div>
-                        <div>Owners: <span className="secondary-data">{game.total_reviews * med_player_multiplier}</span></div>
+                        <div>Owners: <span className="secondary-data">{numberFormat(game.total_reviews * med_player_multiplier)}</span></div>
                         <div>Revenue: <span className="secondary-data">{bigCurrencyFormat(game.total_reviews * game.initial_price * med_player_multiplier)}</span></div>
                     </li>
                 ))}

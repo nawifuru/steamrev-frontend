@@ -1,7 +1,7 @@
 import { Container, Form, Row } from "react-bootstrap";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier } from "../AppSettings";
+import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier, numberFormat } from "../AppSettings";
 import { motion, useAnimation } from "framer-motion";
 import PercentileChart from "./sub/PercentileChart";
 
@@ -63,7 +63,7 @@ function QualityView() {
                             {gameList.map((game) => (
                                 <li className="similar-games-item" key={game.appid}>
                                     <a href={`/games/${game.appid}`}>
-                                        <img src={game.header_image} alt="" />
+                                        <motion.img whileHover={{ scale: 1.05 }} src={game.header_image} alt="" />
                                         <div>{game.name}</div>
                                     </a>
                                     <div className="game-price-details">
@@ -72,7 +72,7 @@ function QualityView() {
                                         <span className="game-price-final">{currencyFormat(game.final_price)}</span>
                                     </div>
                                     <div className="game-price-secondary-details">
-                                        <div>Owners: <span className="secondary-data">{game.total_reviews * med_player_multiplier}</span></div>
+                                        <div>Owners: <span className="secondary-data">{numberFormat(game.total_reviews * med_player_multiplier)}</span></div>
                                         <div>Revenue: <span className="secondary-data">{bigCurrencyFormat(game.total_reviews * game.initial_price * med_player_multiplier)}</span></div>
                                     </div>
                                 </li>

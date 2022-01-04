@@ -2,7 +2,7 @@ import moment from "moment";
 import websiteIcon from "../images/websiteIcon.png";
 import steamIcon from "../images/steamIcon.png";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
-import { bigCurrencyFormat, currencyFormat, high_player_multiplier, ipAddress, low_player_multiplier } from "../AppSettings";
+import { bigCurrencyFormat, currencyFormat, high_player_multiplier, ipAddress, low_player_multiplier, numberFormat } from "../AppSettings";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -95,9 +95,9 @@ function GameView() {
                     <h3 className="mb-2"><u id="game-metrics-header">METRICS</u></h3>
                     <Row>
                         <h2 className="data">
-                            {game.total_reviews * low_player_multiplier}
+                            {numberFormat(game.total_reviews * low_player_multiplier)}
                             {'   ..   '}
-                            {game.total_reviews * high_player_multiplier}
+                            {numberFormat(game.total_reviews * high_player_multiplier)}
                         </h2>
                         <p><small>Estimated Owners</small></p>
                     </Row>
