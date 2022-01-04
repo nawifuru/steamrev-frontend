@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import Select from "react-select";
-import { currencyFormat, ipAddress, med_player_multiplier } from "../AppSettings";
+import { bigCurrencyFormat, ipAddress, med_player_multiplier } from "../AppSettings";
 import MetricHorizontalBarChart from "./sub/MetricHorizontalBarChart";
 import MetricLineChart from "./sub/MetricLineChart";
 import MetricVerticalBarChart from "./sub/MetricVerticalBarChart";
@@ -28,11 +28,11 @@ function ChartView() {
                 value={filterYear}
                 onChange={(value) => setFilterYear(value)}
             />
-            <Row>
+            <Row className="my-5">
                 <Col>
                     <div className="text-center">
                         <h2>
-                            {currencyFormat(metrics.medianRevenue.filter(item => item.year === filterYear.value)[0].data.percentile_cont * med_player_multiplier)}
+                            {bigCurrencyFormat(metrics.medianRevenue.filter(item => item.year === filterYear.value)[0].data.percentile_cont * med_player_multiplier)}
                         </h2>
                         <h4 className="secondary-text">Median revenue <span className="data">({filterYear.label})</span></h4>
                     </div>
@@ -50,11 +50,11 @@ function ChartView() {
                         <h2>
                             {metrics.gameCount.filter(item => item.year === filterYear.value)[0].data.count}
                         </h2>
-                        <h4 className="secondary-text">Apps in database <span className="data">({filterYear.label})</span></h4>
+                        <h4 className="secondary-text">Games in database <span className="data">({filterYear.label})</span></h4>
                     </div>
                 </Col>
             </Row>
-            <Row>
+            <Row className="my-5">
                 <Col sm={8}>
                     <h4 className="chart-title">
                         Median Review Count for Different Pricepoints <span className="data">({filterYear.label})</span>
@@ -71,7 +71,7 @@ function ChartView() {
                     <Table variant="dark">
                         <tbody>
                             <tr>
-                                <td colSpan={2}>Games above $x revenue</td>
+                                <td colSpan={2}>Number of games earning above $x revenue <span className="data">({filterYear.label})</span></td>
                             </tr>
                             <tr>
                                 <td>Above $10k</td>
@@ -93,7 +93,7 @@ function ChartView() {
                     </Table>
                 </Col>
             </Row>
-            <Row>
+            <Row className="my-5">
                 <h4 className="chart-title">
                     Median Review Count for every Genre <span className="data">({filterYear.label})</span>
                 </h4>
@@ -105,7 +105,7 @@ function ChartView() {
                     calculatedHeight={metrics.categories.filter(item => item.year === filterYear.value)[0].data.length * 30}
                 />
             </Row>
-            <Row>
+            <Row className="my-5">
                 <h4 className="chart-title">
                     Median Review Count for every Category <span className="data">({filterYear.label})</span>
                 </h4>

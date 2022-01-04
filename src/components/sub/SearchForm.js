@@ -23,7 +23,7 @@ function SearchForm() {
         e.stopPropagation();
         setSearchFocused(true);
     }
-    const delay = null;
+    let delay = null;
     const [loading, setLoading] = useState(null);
     const handleChangeFilterText = (e) => {
         if (e.target.value.length < 3) {

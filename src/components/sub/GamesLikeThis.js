@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { currencyFormat, ipAddress, med_player_multiplier } from "../../AppSettings";
+import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier } from "../../AppSettings";
 
 function GamesLikeThis(props) {
     const [gameList, setGameList] = useState(null);
@@ -21,7 +21,7 @@ function GamesLikeThis(props) {
                     <li className="similar-games-item" key={game.appid}>
                         <a href={`/games/${game.appid}`}>
                             <img src={game.header_image} alt="" />
-                            <p>{game.name}</p>
+                            <div>{game.name}</div>
                         </a>
                         <div className="game-price-details">
                             <span className="game-price-discount">{game.discount_percent !== 0 ? '-' + game.discount_percent + '%' : ''}</span>
@@ -29,7 +29,7 @@ function GamesLikeThis(props) {
                             <span className="game-price-final">{currencyFormat(game.final_price)}</span>
                         </div>
                         <div>Owners: <span className="secondary-data">{game.total_reviews * med_player_multiplier}</span></div>
-                        <div>Revenue: <span className="secondary-data">{currencyFormat(game.total_reviews * game.initial_price * med_player_multiplier)}</span></div>
+                        <div>Revenue: <span className="secondary-data">{bigCurrencyFormat(game.total_reviews * game.initial_price * med_player_multiplier)}</span></div>
                     </li>
                 ))}
             </ul>

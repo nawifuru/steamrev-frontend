@@ -2,11 +2,12 @@ import moment from "moment";
 import websiteIcon from "../images/websiteIcon.png";
 import steamIcon from "../images/steamIcon.png";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
-import { currencyFormat, high_player_multiplier, ipAddress, low_player_multiplier } from "../AppSettings";
+import { bigCurrencyFormat, currencyFormat, high_player_multiplier, ipAddress, low_player_multiplier } from "../AppSettings";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import GamesLikeThis from "./sub/GamesLikeThis";
+import PercentileChart from "./sub/PercentileChart";
 function GameView() {
     const { appid } = useParams();
     const [game, setGame] = useState(null);
@@ -17,6 +18,7 @@ function GameView() {
         }
         fetchData();
     }, [appid])
+
     return (
         game &&
         <Container id="GameView">
@@ -26,14 +28,17 @@ function GameView() {
             <Row id="game-details">
                 <Col sm={6} id="game-details-primary">
                     <img id="game-details-header-image" src={game.header_image} alt=""></img>
-                    <p>{game.short_description}</p>
-                    <div>
+                    <div>{game.short_description}</div>
+                    <div className="my-3">
                         <Button className="game-redirect-buttons" href={`https://store.steampowered.com/app/${game.steam_appid}`}>
                             <img className="game-redirect-icons" src={steamIcon} alt="" />Store
                         </Button>
-                        <Button className="game-redirect-buttons" href={game.website}>
-                            <img className="game-redirect-icons" src={websiteIcon} alt="" />
-                        </Button>
+                        {
+                            game.website &&
+                            <Button className="game-redirect-buttons" href={game.website}>
+                                <img className="game-redirect-icons" src={websiteIcon} alt="" />
+                            </Button>
+                        }
                     </div>
                     <Table bordered id="game-details-table">
                         <tbody>
@@ -87,42 +92,43 @@ function GameView() {
                     </Table>
                 </Col>
                 <Col sm={6} id="game-details-secondary">
-                    <Row id="game-metrics">
-                        <Col>
-                            <h2 className="data">
-                                {game.total_reviews * low_player_multiplier}
-                                ..
-                                {game.total_reviews * high_player_multiplier}
-                            </h2>
-                            <p><small>Estimated Owners</small></p>
-                        </Col>
-                        <Col>
-                            <h2 className="data">
-                                {currencyFormat(game.total_reviews * game.initial_price * low_player_multiplier)}
-                                ..
-                                {currencyFormat(game.total_reviews * game.initial_price * high_player_multiplier)}
-                            </h2>
-                            <p><small>Estimated Revenue</small></p>
-                        </Col>
-                        <Col>
-                            <div id="game-metrics-percentile">
-                                <div className="px-2">
-                                    <h2 className="data">{game.tier_percentile?.toFixed(2)}</h2>
-                                    <p><small><span className="text-uppercase secondary-data">{game.tier}</span> revenue percentile</small></p>
-                                </div>
-                                <div className="px-2">
-                                    <h2 className="data">{game.total_percentile?.toFixed(2)}</h2>
-                                    <p><small><span className="secondary-data">TOTAL</span> revenue percentile</small></p>
-                                </div>
-                            </div>
-                        </Col>
+                    <h2 className="mb-4">METRICS</h2>
+                    <Row>
+                        <h2 className="data">
+                            {game.total_reviews * low_player_multiplier}
+                            {'   ..   '}
+                            {game.total_reviews * high_player_multiplier}
+                        </h2>
+                        <p><small>Estimated Owners</small></p>
+                    </Row>
+                    <Row>
+                        <h2 className="data">
+                            {bigCurrencyFormat(game.total_reviews * game.initial_price * low_player_multiplier)}
+                            {'   ..   '}
+                            {bigCurrencyFormat(game.total_reviews * game.initial_price * high_player_multiplier)}
+                        </h2>
+                        <p><small>Estimated Revenue</small></p>
+                    </Row>
+                    <Row>
+                        <div className="px-2">
+                            <PercentileChart percentile={game.tier_percentile} />
+                            <h2 className="data">{game.tier_percentile?.toFixed(2)}</h2>
+                            <p><small><span className="text-uppercase secondary-data">{game.tier}</span> revenue percentile</small></p>
+                        </div>
+                    </Row>
+                    <Row>
+                        <div className="px-2">
+                            <PercentileChart percentile={game.total_percentile} />
+                            <h2 className="data">{game.total_percentile?.toFixed(2)}</h2>
+                            <p><small><span className="secondary-data">TOTAL</span> revenue percentile</small></p>
+                        </div>
                     </Row>
                 </Col>
-            </Row>
+            </Row >
             <Row>
                 <GamesLikeThis percentile={game.total_percentile?.toFixed(2)} />
             </Row>
-        </Container>
+        </Container >
     );
 }
 

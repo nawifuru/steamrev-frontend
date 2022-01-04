@@ -16,7 +16,7 @@ function MetricHorizontalBarChart(props) {
                 >
                     <XAxis stroke={variables.textCol1} dataKey={props.x} interval={0} angle={-30} />
                     <YAxis fontSize={15} interval={0} stroke={variables.textCol1} />
-                    <CartesianGrid horizontal={false} />
+                    <CartesianGrid vertical={false} />
                     <Tooltip cursor={{ fill: "#ffffff20" }} content={<CustomToolTip toolTipLabel={props.toolTipLabel} toolTipType={props.toolTipType} />} />
                     <Bar barSize={10} dataKey={props.y} fill="#8884d8" />
                 </BarChart>
@@ -24,7 +24,7 @@ function MetricHorizontalBarChart(props) {
         );
     else {
         return (
-            <div className='text-center'>The database does not contain any data yet.</div>
+            <div className='text-center'>The database does not contain any data for this chart.</div>
         )
     }
 }

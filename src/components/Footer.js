@@ -6,7 +6,7 @@ function Footer() {
         <Container id="Footer">
             <Row>
                 <Col sm={6}>
-                    <a className="navigation-links" href="/about">About</a>
+                    <a className="navigation-links" href="/about">{'FAQ & Help'}</a>
                     <p>
                         SteamRev is a hobby project and is not affiliated with Steam or Valve. The website is built with the React framework and powered by the Steam API.
                     </p>

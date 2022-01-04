@@ -25,7 +25,7 @@ function MetricVerticalBarChart(props) {
         );
     else {
         return (
-            <div className='text-center'>The database does not contain any data yet.</div>
+            <div className='text-center'>The database does not contain any data for this chart.</div>
         )
     }
 }
