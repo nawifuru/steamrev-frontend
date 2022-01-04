@@ -19,7 +19,7 @@ function MetricVerticalBarChart(props) {
                     <YAxis width={140} fontSize={13} interval={0} stroke={variables.textCol1} type="category" dataKey={props.y} />
                     <CartesianGrid horizontal={false} />
                     <Tooltip cursor={{ fill: "#ffffff20" }} content={<CustomToolTip toolTipLabel={props.toolTipLabel} toolTipType={props.toolTipType} />} />
-                    <Bar barSize={10} dataKey={props.x} fill="#8884d8" />
+                    <Bar barSize={12} dataKey={props.x} fill="#8884d8" />
                 </BarChart>
             </ResponsiveContainer>
         );

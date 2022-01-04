@@ -115,7 +115,7 @@ function ChartView() {
                     x="percentile_cont"
                     y="description"
                     toolTipLabel="Category"
-                    calculatedHeight={metrics.categories.filter(item => item.year === filterYear.value)[0].data.length * 40}
+                    calculatedHeight={metrics.categories.filter(item => item.year === filterYear.value)[0].data.length * 30}
                 />
             </Row>
         </Container >
