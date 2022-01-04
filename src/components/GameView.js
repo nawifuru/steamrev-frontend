@@ -94,7 +94,7 @@ function GameView() {
                 <Col sm={6} id="game-metrics" className="text-center">
                     <h3 className="mb-2"><u id="game-metrics-header">METRICS</u></h3>
                     <Row>
-                        <h2 className="data">
+                        <h2 className="secondary-data">
                             {numberFormat(game.total_reviews * low_player_multiplier)}
                             {'   ..   '}
                             {numberFormat(game.total_reviews * high_player_multiplier)}
@@ -102,7 +102,7 @@ function GameView() {
                         <p><small>Estimated Owners</small></p>
                     </Row>
                     <Row>
-                        <h2 className="data">
+                        <h2 className="secondary-data">
                             {bigCurrencyFormat(game.total_reviews * game.initial_price * low_player_multiplier)}
                             {'   ..   '}
                             {bigCurrencyFormat(game.total_reviews * game.initial_price * high_player_multiplier)}
@@ -112,14 +112,14 @@ function GameView() {
                     <Row>
                         <div className="px-2">
                             <PercentileChart percentile={game.tier_percentile} />
-                            <h2 className="data">{game.tier_percentile?.toFixed(2)}</h2>
+                            <h2 className="secondary-data">{game.tier_percentile?.toFixed(2)}</h2>
                             <p><small><span className="text-uppercase secondary-data">{game.tier}</span> revenue percentile</small></p>
                         </div>
                     </Row>
                     <Row>
                         <div className="px-2">
                             <PercentileChart percentile={game.total_percentile} />
-                            <h2 className="data">{game.total_percentile?.toFixed(2)}</h2>
+                            <h2 className="secondary-data">{game.total_percentile?.toFixed(2)}</h2>
                             <p><small><span className="secondary-data">TOTAL</span> revenue percentile</small></p>
                         </div>
                     </Row>
