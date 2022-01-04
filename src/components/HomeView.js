@@ -1,5 +1,6 @@
 import axios from "axios";
-import mainLogo from '../images/mainLogo.svg';
+import MainLogo from "../MainLogo";
+// import mainLogo from '../images/mainLogo.svg';
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { bigCurrencyFormat, currencyFormat, ipAddress, med_player_multiplier, numberFormat } from "../AppSettings";
@@ -17,7 +18,7 @@ function HomeView() {
         <Container id="HomeView">
             <Row id="home-banner" className="mb-4">
                 <Col sm={4}>
-                    <img id="home-logo" src={mainLogo} alt="" />
+                    <MainLogo />
                 </Col>
                 <Col sm={8}>
                     <h1>STEAM REV</h1>

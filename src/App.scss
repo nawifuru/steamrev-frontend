@@ -130,10 +130,12 @@ $nav-col-1: #121314;
 #Content {
     margin-top: 100px;
     #HomeView {
+        padding: 2rem;
         animation: fadeIn 0.5s ease-in-out;
         #home-banner {
             #home-logo {
                 float: right;
+                width: 150px;
                 height: 150px;
             }
         }
