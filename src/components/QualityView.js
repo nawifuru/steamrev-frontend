@@ -40,15 +40,14 @@ function QualityView() {
                             <span>percentile</span>
                         </div>
                     </div>
-                    <div class="slider-container">
+                    <div className="slider-container">
                         <input
                             type="range"
                             min={0}
                             max={1}
                             step={0.01}
                             defaultValue={0.5}
-                            class="slider"
-                            id="myRange"
+                            className="slider"
                             onChange={(e) => setPercentileLabel(e.target.value)}
                             onMouseUp={(e) => handleChangePercentile(e)}
                         />
