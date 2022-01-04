@@ -6,7 +6,7 @@ function PercentileChart(props) {
         for (let i = 0; i < 10; i++) {
             const point = i / 10;
             dataPoints.push({
-                data: clamp((1 - Math.abs(point - percentile) * 2), 0.1, 1)
+                data: clamp((1 - Math.abs(point - percentile) * 2), 0.04, 1)
             });
         }
         return dataPoints;

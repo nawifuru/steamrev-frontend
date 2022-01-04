@@ -56,7 +56,7 @@ function ChartView() {
             </Row>
             <Row className="my-5">
                 <Col sm={8}>
-                    <h4 className="chart-title">
+                    <h4 className="text-center">
                         Median Review Count for Different Pricepoints <span className="data">({filterYear.label})</span>
                     </h4>
                     <MetricLineChart
@@ -94,7 +94,7 @@ function ChartView() {
                 </Col>
             </Row>
             <Row className="my-5">
-                <h4 className="chart-title">
+                <h4 className="text-center">
                     Median Review Count for every Genre <span className="data">({filterYear.label})</span>
                 </h4>
                 <MetricHorizontalBarChart
@@ -106,7 +106,7 @@ function ChartView() {
                 />
             </Row>
             <Row className="my-5">
-                <h4 className="chart-title">
+                <h4 className="text-center">
                     Median Review Count for every Category <span className="data">({filterYear.label})</span>
                 </h4>
                 <MetricVerticalBarChart

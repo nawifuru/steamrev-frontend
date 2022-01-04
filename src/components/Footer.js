@@ -13,7 +13,7 @@ function Footer() {
                     <p>Copyright 2022 SteamRev. All rights reserved.</p>
                 </Col>
                 <Col sm={6}>
-                    <div id="footer-logos">
+                    <div className='text-end'>
                         <a href="https://github.com/nawifuru/">
                             <img className="external-logos" src={githubLogo} alt="" />
                         </a>

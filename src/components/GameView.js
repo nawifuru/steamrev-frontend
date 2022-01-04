@@ -25,7 +25,7 @@ function GameView() {
             <Row>
                 <h2>{game.name}</h2>
             </Row>
-            <Row id="game-details">
+            <Row className="mb-5">
                 <Col sm={6} id="game-details-primary">
                     <img id="game-details-header-image" src={game.header_image} alt=""></img>
                     <div>{game.short_description}</div>
@@ -91,7 +91,7 @@ function GameView() {
                         </tbody>
                     </Table>
                 </Col>
-                <Col sm={6} id="game-details-secondary">
+                <Col sm={6} className="text-center">
                     <h2 className="mb-4">METRICS</h2>
                     <Row>
                         <h2 className="data">
