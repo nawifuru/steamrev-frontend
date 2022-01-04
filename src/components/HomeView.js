@@ -25,7 +25,7 @@ function HomeView() {
                             </tr>
                             {gameList.total.map((item) => (
                                 <tr className="game-details" key={item.appid}>
-                                    <td>
+                                    <td className="game-image-container">
                                         <a href={`/games/${item.appid}`}>
                                             <img className="game-image" src={item.header_image} alt="" />
                                         </a>
@@ -57,7 +57,7 @@ function HomeView() {
                             </tr>
                             {gameList.recent.map((item) => (
                                 <tr className="game-details" key={item.appid}>
-                                    <td>
+                                    <td className="game-image-container">
                                         <a href={`/games/${item.appid}`}>
                                             <img className="game-image" src={item.header_image} alt="" />
                                         </a>

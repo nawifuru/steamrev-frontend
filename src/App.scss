@@ -152,12 +152,16 @@ $data-col-4: #065ba4;
                 td {
                     vertical-align: middle;
                 }
-                .game-image {
-                    height: 48px;
-                    max-width: 140px;
-                }
-                .game-image:hover {
-                    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                .game-image-container {
+                    width: 105px;
+                    .game-image {
+                        height: 48px;
+                        max-width: 105px;
+                        overflow: hidden;
+                    }
+                    .game-image:hover {
+                        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                    }
                 }
             }
         }

@@ -4,7 +4,7 @@ import mainLogo from '../images/mainLogo.png';
 import SearchForm from './sub/SearchForm';
 function NavigationBar() {
     return (
-        <Navbar fixed="top" id="NavigationBar" variant="dark" expand="lg" collapseOnSelect>
+        <Navbar fixed="top" id="NavigationBar" expand="lg" collapseOnSelect>
             <Container fluid>
                 <Navbar.Brand>
                     <Link className="navigation-links" to="/">
