@@ -72,7 +72,7 @@ function ChartView() {
                     <Table variant="dark">
                         <tbody>
                             <tr>
-                                <td colSpan={2}>Number of games earning above $x revenue <span className="data">({filterYear.label})</span></td>
+                                <td colSpan={2}>Num of games earning above $x revenue <span className="data">({filterYear.label})</span></td>
                             </tr>
                             <tr>
                                 <td>Above $10k</td>
