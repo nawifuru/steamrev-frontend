@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Form, FormControl } from "react-bootstrap";
+import { Button, Form, FormControl, Spinner } from "react-bootstrap";
 import { ipAddress } from "../../AppSettings";
 import searchIcon from '../../images/searchIcon.png';
 function SearchForm() {
@@ -69,7 +69,16 @@ function SearchForm() {
                         ))}
                         {
                             loading &&
-                            <span className="search-results-loading">Loading...</span>
+                            <Button variant="primary" disabled className="search-results-loading">
+                                <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                />
+                                Loading...
+                            </Button>
                         }
                     </div>
                 }

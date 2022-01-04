@@ -125,9 +125,7 @@ $data-col-4: #065ba4;
                 background-color: $bg-col-4;
             }
             .search-results-loading {
-                padding: 5px;
-                color: $text-col-3;
-                background-color: $bg-col-7;
+                opacity: 1;
             }
         }
     }
