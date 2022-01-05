@@ -25,5 +25,5 @@ module.exports = {
         value = formatter.format(value);
         return value;
     },
-    ipAddress: 'https://188.166.233.168:5000'
+    ipAddress: 'http://www.steamrev.com:5000'
 }
