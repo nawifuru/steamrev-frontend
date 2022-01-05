@@ -4,7 +4,7 @@ import CustomToolTip from './CustomTooltip';
 function MetricHorizontalBarChart(props) {
     if (props.data.length > 0)
         return (
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="95%" height={300}>
                 <BarChart
                     data={props.data}
                     margin={{

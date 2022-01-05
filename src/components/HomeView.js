@@ -17,17 +17,17 @@ function HomeView() {
         gameList &&
         <Container id="HomeView">
             <Row id="home-banner" className="mb-4">
-                <Col sm={4}>
+                <Col md={4}>
                     <MainLogo />
                 </Col>
-                <Col sm={8}>
+                <Col md={8}>
                     <h1>STEAM REV</h1>
                     <h3 className="data">Explore the top market trends within the Steam market.</h3>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Table size="sm" className="popular-game-table" >
+                    <Table responsive size="sm" className="popular-game-table" >
                         <tbody>
                             <tr>
                                 <td colSpan={2} className="fs-5 fw-bold">Best Selling Games of All-Time</td>
@@ -59,7 +59,7 @@ function HomeView() {
                     </Table>
                 </Col>
                 <Col>
-                    <Table size="sm" className="popular-game-table">
+                    <Table responsive size="sm" className="popular-game-table">
                         <tbody>
                             <tr>
                                 <td colSpan={2} className="fs-5 fw-bold">Recent Best Selling Games <span className="data">(1 month)</span></td>

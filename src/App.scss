@@ -82,6 +82,10 @@ $nav-col-1: #121314;
     #search-form {
         min-width: 400px;
         position: relative;
+        @media only screen and (max-width: 768px) {
+            min-width: fit-content;
+            width: 100%;
+        }
         #search-bar {
             width: 100%;
             display: flex;
@@ -141,7 +145,7 @@ $nav-col-1: #121314;
                 height: 150px;
             }
         }
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 768px) {
             #home-banner {
                 text-align: center;
                 #home-logo {
@@ -188,7 +192,6 @@ $nav-col-1: #121314;
         #game-details-primary {
             #game-details-header-image {
                 width: 100%;
-                min-width: 460px;
             }
             .game-redirect-buttons {
                 margin-right: 10px;

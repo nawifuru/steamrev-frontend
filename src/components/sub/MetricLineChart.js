@@ -4,7 +4,7 @@ import CustomToolTip from './CustomTooltip';
 function MetricLineChart(props) {
     if (props.data.length > 0)
         return (
-            <ResponsiveContainer width="100%" height={props.calculatedHeight || 250}>
+            <ResponsiveContainer width="95%" height={props.calculatedHeight || 250}>
                 <AreaChart
                     data={props.data}
                     margin={{

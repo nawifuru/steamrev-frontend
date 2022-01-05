@@ -13,10 +13,10 @@ module.exports = {
     bigCurrencyFormat: function (value) {
         const formatter = new Intl.NumberFormat("en-US", {
             style: "currency",
-            currency: "USD",
-            maximumFractionDigits: 0
+            currency: "USD"
         });
-        value = formatter.format((value / 100).toFixed(0));
+        //slice instead of maximumfractiondigits because it crashes!!!!
+        value = formatter.format((value / 100).toFixed(0)).slice(0, -3);
         return value;
     },
     numberFormat: function (value) {

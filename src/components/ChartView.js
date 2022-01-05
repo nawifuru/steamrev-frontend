@@ -54,7 +54,7 @@ function ChartView() {
                     </div>
                 </Col>
             </Row>
-            <Row className="my-5">
+            <Row>
                 <Col sm={8}>
                     <h4 className="text-center">
                         Median Review Count for Different Pricepoints <span className="data">({filterYear.label})</span>
@@ -94,7 +94,7 @@ function ChartView() {
                     </Table>
                 </Col>
             </Row>
-            <Row className="my-5">
+            <Row>
                 <h4 className="text-center">
                     Median Review Count for every Genre <span className="data">({filterYear.label})</span>
                 </h4>
@@ -106,7 +106,7 @@ function ChartView() {
                     calculatedHeight={metrics.categories.filter(item => item.year === filterYear.value)[0].data.length * 30}
                 />
             </Row>
-            <Row className="my-5">
+            <Row>
                 <h4 className="text-center">
                     Median Review Count for every Category <span className="data">({filterYear.label})</span>
                 </h4>
