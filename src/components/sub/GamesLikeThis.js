@@ -8,7 +8,7 @@ function GamesLikeThis(props) {
     const percentile = props.percentile;
     useEffect(() => {
         async function fetchData() {
-            const results = await axios.get(`http://${ipAddress}/games/quality?percentile=${percentile}`);
+            const results = await axios.get(`${ipAddress}/games/quality?percentile=${percentile}`);
             setGameList(results.data);
         }
         fetchData();

@@ -13,7 +13,7 @@ function GameView() {
     const [game, setGame] = useState(null);
     useEffect(() => {
         async function fetchData() {
-            const results = await axios.get(`http://${ipAddress}/games/${appid}`);
+            const results = await axios.get(`${ipAddress}/games/${appid}`);
             setGame(results.data);
         }
         fetchData();

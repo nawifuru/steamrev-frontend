@@ -8,7 +8,7 @@ function HomeView() {
     const [gameList, setGameList] = useState(null);
     useEffect(() => {
         async function fetchData() {
-            const results = await axios.get(`http://${ipAddress}/games/popular`);
+            const results = await axios.get(`${ipAddress}/games/popular`);
             setGameList(results.data);
         }
         fetchData();

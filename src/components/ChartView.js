@@ -12,7 +12,7 @@ function ChartView() {
     const [filterYear, setFilterYear] = useState(null);
     useEffect(() => {
         async function fetchData() {
-            const results = await axios.get(`http://${ipAddress}/games/metrics`);
+            const results = await axios.get(`${ipAddress}/games/metrics`);
             setMetrics(results.data);
             setFilterYear(results.data.years[0]);
         }

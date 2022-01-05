@@ -13,7 +13,7 @@ function SearchForm() {
             setSearchFocused(false);
         });
         async function fetchData() {
-            const results = await axios.get(`http://${ipAddress}/games`);
+            const results = await axios.get(`${ipAddress}/games`);
             setGameList(results.data);
         }
         fetchData();

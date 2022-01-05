@@ -16,7 +16,7 @@ function QualityView() {
             await controls.start({
                 opacity: 0
             })
-            const results = await axios.get(`http://${ipAddress}/games/quality?percentile=${percentile}`);
+            const results = await axios.get(`${ipAddress}/games/quality?percentile=${percentile}`);
             setGameList(results.data);
             await controls.start({
                 opacity: 1

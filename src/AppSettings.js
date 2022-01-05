@@ -25,5 +25,5 @@ module.exports = {
         value = formatter.format(value);
         return value;
     },
-    ipAddress: '188.166.233.168:5000'
+    ipAddress: 'https://188.166.233.168:5000'
 }
