@@ -18,10 +18,10 @@ function Footer() {
                 </Col>
                 <Col sm={6}>
                     <div className='text-end'>
-                        <a href="https://github.com/nawifuru/">
+                        <a href="https://github.com/vuurmot/">
                             <img className="external-logos" src={githubLogo} alt="" />
                         </a>
-                        <a href="https://www.linkedin.com/in/nawi-furu-31975b229/">
+                        <a href="https://www.linkedin.com/in/lim-zhihong-904a39228/">
                             <img className="external-logos" src={linkedinLogo} alt="" />
                         </a>
                     </div>
