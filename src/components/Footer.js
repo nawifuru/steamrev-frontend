@@ -18,7 +18,7 @@ function Footer() {
                 </Col>
                 <Col sm={6}>
                     <div className='text-end'>
-                        <a href="https://github.com/vuurmot/">
+                        <a href="https://github.com/nawifuru/">
                             <img className="external-logos" src={githubLogo} alt="" />
                         </a>
                         <a href="https://www.linkedin.com/in/lim-zhihong-904a39228/">
